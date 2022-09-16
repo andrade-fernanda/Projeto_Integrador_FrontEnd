@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Categoria } from '../model/Categoria';
 import { Produtos } from '../model/Produtos';
 import { User } from '../model/User';
-//import { AuthService } from '../service/auth.service';
+import { AuthService } from '../service/auth.service';
 import { CategoriaService } from '../service/categoria.service';
 import { ProdutosService } from '../service/produtos.service';
 
@@ -17,6 +17,8 @@ export class ProdutoComponent implements OnInit {
 
   produtos: Produtos = new Produtos()
   listaProdutos:Produtos[]
+  nomeProd: string
+  nomeCateg: string
 
 
   categoria: Categoria = new Categoria
@@ -30,7 +32,7 @@ export class ProdutoComponent implements OnInit {
     private router: Router,
     private produtosService: ProdutosService,
     private categoriaService: CategoriaService,
-    //private authService: AuthService
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -69,6 +71,27 @@ export class ProdutoComponent implements OnInit {
       alert("Postagem realizada com sucesso!")
       this.produtos =new Produtos()
     })
+  }
+
+  findByNomeProduto(){
+
+    if(this.nomeProd == ''){
+      this.getAllProdutos()
+    } else {
+      this.produtosService.getByNomeProduto(this.nomeProd).subscribe((resp: Produtos[]) => {
+        this.listaProdutos = resp
+      })
+    }
+  }
+
+  findByNomeCategoria(){
+    if(this.nomeCateg == ''){
+      this.getAllCategoria()
+    } else {
+      this.categoriaService.getByNomeCategoria(this.nomeCateg).subscribe((resp: Categoria[]) => {
+        this.listaCategoria = resp
+      })
+    }
   }
 
 }
