@@ -28,6 +28,9 @@ export class ProdutoComponent implements OnInit {
   user: User = new User()
   idUser = environment.id
 
+  key  = 'data'
+  reverse = true
+
   constructor(
     private router: Router,
     private produtosService: ProdutosService,
@@ -59,6 +62,12 @@ export class ProdutoComponent implements OnInit {
       this.listaProdutos = resp
     })
   }
+  findByIdUser(){
+    this.authService.getByIdUser(this.idUser).subscribe((resp: User)=>{
+      this.user = resp
+    })
+
+  }
   publicar(){
     this.categoria.id=this.idCategoria
     this.produtos.categoria = this.categoria
@@ -70,6 +79,7 @@ export class ProdutoComponent implements OnInit {
       this.produtos =resp
       alert("Postagem realizada com sucesso!")
       this.produtos =new Produtos()
+      this.getAllProdutos()
     })
   }
 

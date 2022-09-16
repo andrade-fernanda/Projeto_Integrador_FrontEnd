@@ -1,6 +1,7 @@
 <div class="container-fluid">
 
   <div class="row d-flex align-items-center">
+<<<<<<< HEAD
       <div class="col-md-12">
 
           <div class="row d-flex justify-content-center">
@@ -18,23 +19,43 @@
               
 
           </div>
+=======
+    <div class="col-md-12">
+>>>>>>> 366f73f762a1bd4bbc2d93e7f7c41555bfdd17f4
 
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 text-white">
+          <img class="banner ml-4" src="https://i.imgur.com/PwZK14s.png" alt="">
+        </div>
       </div>
+
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-6">
+          <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#novoProduto">Cadastrar novo
+            produto</button>
+          <a class="btn btn-outline-primary" href="#produtos">Ver produtos cadastrados</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 
 </div>
-
+<!-- nav -->
 <div class="container mb-5 mt-5 " id="postagens">
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Todos os produtos </a>
-      </li>
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+        aria-controls="pills-home" aria-selected="true">Todos os produtos </a>
+    </li>
 
-      <li class="nav-item">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Produtos por Categoria</a>
-      </li>
-    </ul>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+        aria-controls="pills-profile" aria-selected="false">Produtos por Categoria</a>
+    </li>
+  </ul>
 
+<<<<<<< HEAD
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="produtoCategoria" role="tabpanel" aria-labelledby="nav-produtoCategoria-tab">
 
@@ -53,23 +74,50 @@
             </div>
           </div>
         </div>
+=======
+  <div class="tab-content mt-5" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+>>>>>>> 366f73f762a1bd4bbc2d93e7f7c41555bfdd17f4
 
-        <div class="card-deck">
-          <div class="card" *ngFor="let item of listaProdutos">
-            <img class="card-img-top" src="{{item.foto}}" alt="Imagem de capa do card">
-            <div class="card-body">
-              <h5 class="card-title">{{item.nomeProduto}}</h5>
-              <p class="card-text">{{item.preco}}</p>
-            </div>
 
+      
+
+      <div class="card-columns ">
+
+        <div class="card text-center" *ngFor="let item of listaProdutos  | orderBy : key : reverse">
+          <img class="card-img-top" src="{{item.foto}}" alt="Imagem de capa do card">
+          <div class="card-body">
+            <h5 class="card-title">{{item.nomeProduto}}</h5>
+            <small class="text-muted">Categoria: {{item.categoria.categorias}}</small>
+            <p class="card-text">{{item.preco | currency: 'BRL'}}</p>
+            <a [routerLink]="['/produtos-edit', item.id]"
+              class="text-info mr-3" href="">Editar</a>
+            <a [routerLink]="['/produtos-delete',item.id]" class="text-danger" href="">Apagar</a>
+          </div>
         </div>
 
 
+   
+      <!-- produtos por categoria -->
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        
+        <div class="card-columns" *ngFor="let categoria of listaCategoria  | orderBy : key : reverse">
+          <!-- <div class="card-deck"> -->
+            <div class="card text-center" *ngFor="let item of categoria.produto">
 
+              <img class="card-img-top" src="{{item.foto}}" alt="Imagem de capa do card">
+              <div class="card-body">
+                <h5 class="card-title">{{item.nomeProduto}}</h5>
+                <small class="text-muted">Categoria: {{item.categoria.categorias}}</small>
+                <p class="card-text">{{item.preco | currency: 'BRL'}}</p>
+              </div>
+
+            </div>
+
+          <!-- </div> -->
       </div>
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-
     </div>
+
 </div>
 
 
@@ -117,8 +165,8 @@
 
         <div class="form-group">
           <label for="categoria">Selecione uma categoria ou <a routerLink='/categorias' data-dismiss="modal">cadastre uma nova:</a></label>
-          <select name="categoria" id="categoria" class="form-control" [(ngModel)]="idCategoria" (change)="findByIdCategoria()" >
-            <option *ngFor="let item of listaCategoria" value="{{item.id}}">
+          <select name="categoria" id="categoria" class="form-control" [(ngModel)]="idCategoria" (change)="findByIdCategoria() " >
+            <option *ngFor="let item of listaCategoria | orderBy : key : reverse" value="{{item.id}}">
               {{item.categorias}}
             </option>
           </select>
@@ -129,6 +177,6 @@
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-success"  data-dismiss="modal" (click)="publicar()">Cadastrar</button>
       </div>
+
     </div>
   </div>
-</div>
