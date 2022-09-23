@@ -11,13 +11,10 @@ ul.social-network li{
 
 .fa{
     font-size: 35pt;
-    color: rgb(0, 0, 0);
+    color: black;
     padding: 10px;
 }
 
-.fa-github-square:hover{
-    color: rgb(82, 73, 73);
-}
 
 .fa-linkedin-square:hover{
     color:rgb(21, 10, 170);
@@ -27,6 +24,9 @@ ul.social-network li{
     color:rgb(237, 11, 109);
 }
 .fs{
-    font-size: 15pt;
-    font-weight: bold;
+    font-size: 13pt;
+}
+
+.paragrafo{
+    font-size: 16pt;
 }
