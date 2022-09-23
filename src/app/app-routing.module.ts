@@ -11,15 +11,18 @@ import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-de
 import { ProdutosEditComponent } from './edit/produtos-edit/produtos-edit.component';
 import { ProdutosDeleteComponent } from './delete/produtos-delete/produtos-delete.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
 
-  {path: '', redirectTo: 'entrar', pathMatch:"full"},
+  {path: '', redirectTo: 'home', pathMatch:"full"},
+
   
   {path: 'entrar', component: EntrarComponent},
   {path: 'cadastrar', component: CadastroComponent},
-
+  
+  {path: 'home', component: HomeComponent},
   {path: 'inicio', component: InicioComponent},
   {path: 'sobre', component: SobreComponent},
   
@@ -33,7 +36,7 @@ const routes: Routes = [
   {path: 'produtos-delete/:id',component: ProdutosDeleteComponent},
   {path: 'produtos-edit/:id', component: ProdutosEditComponent},
   {path: 'produtos-delete/:id',component: ProdutosDeleteComponent},
-  {path:  'user-edit/:id', component: UserEditComponent}
+  {path: 'user-edit/:id', component: UserEditComponent}
   ];
 
 
