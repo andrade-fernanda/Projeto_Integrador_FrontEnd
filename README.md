@@ -7,7 +7,7 @@
 - Fernanda Andrade
 - Aline Beltrão
 - Nataly Carvalho
-- Victoria Farias
+
 
 ## Projeto
 
