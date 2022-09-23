@@ -16,27 +16,27 @@ export class CategoriaService {
   }
 
   getAllCategoria(): Observable<Categoria[]>{
-    return this.http.get<Categoria[]>('https://agua-limpa.netlify.app/categorias', this.token)
+    return this.http.get<Categoria[]>('https://agualimpa.herokuapp.com/categorias', this.token)
   }
 
   getByIdCategoria(id: number): Observable<Categoria>{
-    return this.http.get<Categoria>(`https://agua-limpa.netlify.app/categorias/${id}`, this.token)
+    return this.http.get<Categoria>(`https://agualimpa.herokuapp.com/categorias/${id}`, this.token)
   }
 
   getByNomeCategoria(nome: string): Observable<Categoria[]>{
-    return this.http.get<Categoria[]>(`https://agua-limpa.netlify.app/categorias/${Categoria}`, this.token)
+    return this.http.get<Categoria[]>(`https://agualimpa.herokuapp.com/categorias/${Categoria}`, this.token)
   }
 
   postCategoria(categoria: Categoria): Observable<Categoria>{
-    return this.http.post<Categoria>('https://agua-limpa.netlify.app/categorias', categoria, this.token)
+    return this.http.post<Categoria>('https://agualimpa.herokuapp.com/categorias', categoria, this.token)
   }
 
   putCategoria(categoria: Categoria): Observable<Categoria>{
-    return this.http.put<Categoria>('https://agua-limpa.netlify.app/categorias', categoria, this.token)
+    return this.http.put<Categoria>('https://agualimpa.herokuapp.com/categorias', categoria, this.token)
   }
 
   deleteCategoria(id: number){
-    return this.http.delete(`https://agua-limpa.netlify.app/categorias/${id}`, this.token)
+    return this.http.delete(`https://agualimpa.herokuapp.com/categorias/${id}`, this.token)
   }
   
 
